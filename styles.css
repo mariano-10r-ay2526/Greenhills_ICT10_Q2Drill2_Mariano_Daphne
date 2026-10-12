@@ -1,0 +1,199 @@
+ :root {
+            --ink:        #23272b;   /* deep graphite */
+            --slate:      #3a4650;   /* blue-grey slate */
+            --pine:       #4a5d54;   /* muted pine */
+            --sage:       #8b9a8c;   /* dusty sage */
+            --plum:       #6d5563;   /* faded plum */
+            --brass:      #a58a5c;   /* aged brass */
+            --clay:       #b08d7b;   /* terracotta clay */
+            --parchment:  #ece6da;   /* warm oat */
+            --linen:      #f6f2ea;   /* pale linen */
+            --line:       #cfc7b8;   /* soft rule */
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { min-height: 100%; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 20px;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: var(--parchment);
+            background:
+                radial-gradient(900px 500px at 15% 10%, rgba(109, 85, 99, 0.35), transparent 60%),
+                radial-gradient(800px 520px at 90% 95%, rgba(74, 93, 84, 0.40), transparent 60%),
+                linear-gradient(160deg, #2b3138 0%, #23272b 55%, #2a2d33 100%);
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(236, 230, 218, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(236, 230, 218, 0.035) 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+        }
+
+        .masthead {
+            position: relative;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .crest {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 18px;
+            border: 1px solid var(--brass);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 1.7rem;
+            color: var(--brass);
+            box-shadow: 0 0 0 5px rgba(165, 138, 92, 0.12);
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 0.22em;
+            color: var(--linen);
+        }
+
+        h3 {
+            margin: 10px 0 0;
+            font-weight: 500;
+            font-size: 0.78rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+
+        .rule {
+            width: 72px;
+            height: 1px;
+            margin: 20px auto 0;
+            background: linear-gradient(90deg, transparent, var(--brass), transparent);
+        }
+
+        /* ---------- FORM ---------- */
+        form {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            padding: 36px 34px 32px;
+            background: linear-gradient(180deg, var(--linen), var(--parchment));
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--brass);
+            border-radius: 6px;
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.5) inset,
+                0 24px 48px -16px rgba(0, 0, 0, 0.55);
+        }
+
+        form br { display: none; }
+
+        input[type="text"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 16px;
+            padding: 13px 14px;
+            font: inherit;
+            font-size: 0.95rem;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        input[type="text"]::placeholder { color: #8a8478; }
+
+        input[type="text"]:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--pine);
+            box-shadow: 0 0 0 3px rgba(74, 93, 84, 0.18);
+        }
+
+        input[type="button"] {
+            display: block;
+            width: 100%;
+            margin-top: 8px;
+            padding: 13px 16px;
+            font: inherit;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--linen);
+            background: linear-gradient(180deg, var(--pine), #3f5048);
+            border: 1px solid #36453e;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        }
+
+        input[type="button"]:hover {
+            background: linear-gradient(180deg, #55695f, var(--pine));
+            box-shadow: 0 6px 16px -6px rgba(35, 39, 43, 0.6);
+        }
+
+        input[type="button"]:active { transform: translateY(1px); }
+
+        input[type="button"]:focus-visible {
+            outline: 2px solid var(--brass);
+            outline-offset: 2px;
+        }
+
+        /* ---------- RESULT AREA ---------- */
+        #div1 {
+            width: 100%;
+            max-width: 420px;
+            margin-top: 22px;
+            padding: 0;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--parchment);
+        }
+
+        #div1:not(:empty) {
+            padding: 18px 22px;
+            background: rgba(58, 70, 80, 0.55);
+            border: 1px solid rgba(165, 138, 92, 0.45);
+            border-left: 3px solid var(--clay);
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        #div1 p, #div1 h1, #div1 h2, #div1 h3 { margin: 0; }
+        #div1 h1, #div1 h2, #div1 h3 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            letter-spacing: 0.04em;
+            color: var(--linen);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(139, 154, 140, 0.7);
+        }
+
+        @media (max-width: 480px) {
+            form { padding: 28px 22px 26px; }
+        }
